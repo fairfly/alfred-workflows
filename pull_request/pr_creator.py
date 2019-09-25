@@ -14,8 +14,7 @@ class FFGitHub:
     FF_TASK_PATTERN = r'(FF[\s*\-\s*]*)(?P<task>\d*)(?P<desc>.*)'
 
     def __init__(self, repo_name):
-	github_token=os.environ.get('GITHUB_ACCESS_TOKEN')
-	print(github_token)
+        github_token = os.environ.get('GITHUB_ACCESS_TOKEN')
         self.github = Github(login_or_token=github_token)
         self.main_repo = self.get_repo(repo_name)
 
