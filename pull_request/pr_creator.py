@@ -81,6 +81,7 @@ class FFGitHub:
         buddy_acceptance_url = os.environ.get('BUDDY_EXECUTION_URL')
         if buddy_acceptance_url:
             raw_body += "Acceptance Checker: %s\nResults: https://s3.console.aws.amazon.com/s3/buckets/fairfly-logs/%s/\n" % (buddy_acceptance_url, os.environ.get('ACCEPTANCE_RUN_FULL_PATH'))
+            raw_body += "- [x] Developer check\n- [x] - Reviewer check\n"
 
         if title_from_commit:
             pr.edit(title=main_commit_title, body=pr.body + '\n' + raw_body)
